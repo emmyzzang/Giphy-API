@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Best Trendy Foods</title>
+	<style type="text/css"> 
+	button, 
+	div, 
+	form, 
+	input {
+		margin: 10px;
+	}
+
+	body { 
+	color: white;
+	background-color: black; 
+	background-image: url(https://myanimelist.cdn-dena.com/images/useravatars/3510905.jpg);
+	background-repeat: no-repeat;
+	background-position: bottom; 
+	 }
+
+	h1 { 
+		font-family: helvetica; 
+	 } 
+
+	</style>
+</head> 
+
+<body>
+	<div class="container">
+		<h1>Our Favorite Trendy Foods! The Real Reason Millenials Can't Afford Houses</h1>
+		<!--Create Visible Buttons On Init--> 
+		<div id="buttons-view">
+			<button class="food" data-food="avocado-toast">Avocado Toast</button>
+			<button class="food" data-food="kbbq">KBBQ</button>
+			<button class="food" data-food="ice-cream">Ice Cream</button>
+			<button class="food" data-food="donuts">Donuts</button>
+		</div>
+		<!--Create a basic input form for the user to input their food choices to be submitted to giphy--> 
+		<form id="input-form">
+			<label for="food-input">Add your favorite food!</label>
+				<input type="text" id="food-input">
+		<br>
+				<input id="add-food" type="submit" value="Add your favorite foods!">
+		</form>
+		<div id="food-view"></div>
+		<div id="gifs-appear-here"></div>
+	</div> 
+
+	<!--Linking the JQuery Library -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<!--Linking the JS file--> 
+    <script type="text/javascript" src= "assets/logic.js"></script>
+</body>
+
+</html>
+	
