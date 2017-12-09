@@ -1,2 +1,2 @@
 # Giphy-API
-Food Giphy API Loader
+A simple gif loader using the Giphy API, Ajax, JS/JQuery, and frontend tech. 
