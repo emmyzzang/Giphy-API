@@ -1,0 +1,45 @@
+body { 
+	background-color: black; 
+	background-image: url(saber.jpg);
+	background-position: top; 
+}
+
+h1 { 
+	font-family: 'Satisfy', cursive;
+	text-align: center;
+	color: lightblue;
+} 
+
+button {
+	margin: 10px;
+	border-radius: 1em;
+	background-color: lightgrey;
+	height: 32px;
+}
+
+div, form, input {
+	margin: 10px;
+	border-radius: 2em;
+}
+
+#buttons-view {
+	text-align: center;
+}
+
+#input-form {
+	text-align: center;
+	font-family: 'Satisfy', cursive;
+	color: lightblue;
+}
+
+.waifuGifDiv {
+	background-color: #263238;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 32px;
+}
+
+#gifs-appear-here {
+	color: white;
+}

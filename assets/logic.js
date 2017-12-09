@@ -1,17 +1,16 @@
 //INIT AND GLOBALS 
-alert('hey!'); 
-//first need a function to display the food  
-function displayFoodInfo () {
+// First, a function to display the waifu  
+function displayWaifuInfo () {
 
-  var food = $(this).attr("data-food"); 
+  var waifu = $(this).attr("data-waifu"); 
 
-  //call upon ajax to grab the giphy API via the two parameters: URL and METHOD
+  //Call upon ajax to grab the giphy API via the two parameters: URL and METHOD
   //URL is a string equal to the API + SEARCH TERM + API KEY. Concat because needs to be parsed as a string.
   //When done, store all response.data in a results variable 
   //Use comparator logic to first check the quality (in this case, "rating") of each result 
 
   $.ajax({
-    url: "https://api.giphy.com/v1/gifs/search?q=" + food + "&api_key=dc6zaTOxFJmzC&limit=10", 
+    url: "https://api.giphy.com/v1/gifs/search?q=" + waifu + "&api_key=dc6zaTOxFJmzC&limit=10", 
     method: "GET"
   })
 
@@ -27,27 +26,27 @@ function displayFoodInfo () {
         
         //now if the data passes the conditional above, do the following: 
         //use jq to create a div class to hold the gifs and store it in a variable 
-        var gifDiv = $("<div class='foodGifDiv'>");
+        var gifDiv = $("<div class='waifuGifDiv'>");
         //notate so that each result item's rating can be discreet, and store it in a variable 
         var rating = results[i].rating; 
         //use jq to create a paragraph tag with the result item's rating 
         var p = $("<p>").text("Rating: " + rating); 
         //use jq to create an image tag to store images 
-        var foodImage = $("<img>"); 
+        var waifuImage = $("<img>"); 
  
-        foodImage.addClass("foodGif"); 
+        waifuImage.addClass("waifuGif"); 
         
         //give the image tag an src attribute of a property pulled off of the result item 
-        foodImage.attr("src", results[i].images.fixed_height_still.url); 
+        waifuImage.attr("src", results[i].images.fixed_height_still.url); 
         //in the image tag, let the moving images have moving image attributes
-        foodImage.attr("moving-image", results[i].images.fixed_height.url); 
+        waifuImage.attr("moving-image", results[i].images.fixed_height.url); 
         //in the image tag, let the still images have still image attributes
-        foodImage.attr("still-image", results[i].images.fixed_height_still.url); 
+        waifuImage.attr("still-image", results[i].images.fixed_height_still.url); 
 
 
-        //append both the paragraph and foodImage we created to the gifDiv that we created
+        //append both the paragraph and waifuImage we created to the gifDiv that we created
         gifDiv.prepend(p); 
-        gifDiv.prepend(foodImage); 
+        gifDiv.prepend(waifuImage); 
 
         //prepend the gifDiv to the "#gifs-appear-here" div in the HTML
           $("#gifs-appear-here").prepend(gifDiv); 
@@ -59,26 +58,25 @@ function displayFoodInfo () {
 
 //FUNCTIONS 
 
-        //call upon a function to handle events when user wants to add a new food item  
-    
-        $("#add-food").on("click", function(event) { 
+        //call upon a function to handle events when user wants to add a new waifu item  
+        $("#add-waifu").on("click", function(event) { 
             //prevent the default action of the element from happening
             event.preventDefault();
        
-        //inside the form input, use jq to grab the food input without spaces  
-        var food = $("#food-input").val().trim(); 
+        //inside the form input, use jq to grab the waifu input without spaces  
+        var waifu = $("#waifu-input").val().trim(); 
 
-        //the food from the text box has to be queued up in the array 
+        //the waifu from the text box has to be queued up in the array 
         var a = $("<button>"); 
 
-          //for the button stored in variable a, add a class of food 
-          a.addClass("food"); 
+          //for the button stored in variable a, add a class of waifu 
+          a.addClass("waifu"); 
 
           //for the button stored in variable a, add the data attribute 
-          a.attr("data-food", food); 
+          a.attr("data-waifu", waifu); 
 
-          //for the button stored in variable a, write the text of the food 
-          a.text(food); 
+          //for the button stored in variable a, write the text of the waifu 
+          a.text(waifu); 
 
           //use jq to grab the buttons view div and add the button to it
           //this is how we control the view, whether it is removed or added, etc.
@@ -87,7 +85,6 @@ function displayFoodInfo () {
     }); 
           //this is basically like a "document ready" but is more dynamic 
           //and the event handler has more parameters  
-
           $('body').on('click', "img", function (event) { 
 
             var movingImage = $(this).attr("moving-image"); 
@@ -97,10 +94,5 @@ function displayFoodInfo () {
 
           }); 
 
-            $(document).on("click", ".food", displayFoodInfo); 
-
-
-
-
-
-
+            $(document).on("click", ".waifu", displayWaifuInfo); 
+            
